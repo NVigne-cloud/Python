@@ -1,0 +1,86 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 23:10:07 2020
+
+@author: nicol
+"""
+import numpy as np
+import matplotlib.pyplot as plt
+
+v = np.array([1, 3, 2, 4])
+print(v)
+print(type(v))
+
+x = np.array([0,2,4,6])
+
+plt.figure()
+plt.plot(x,v,'r--',label='vecteur')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Exemple Titre')
+plt.legend(loc='lower right')
+plt.show()
+
+M = np.array([[1,3],[2,4]])
+print(M)
+
+print(M[0, 0])
+print(M[1, 1])
+
+a = np.array([0,0,0])
+print(a.dtype)
+a[0] = 3.2
+print(a)
+
+a = np.array([0,0,0],dtype=np.float64)
+a[0] = 3.2
+print(a)
+
+M = np.array([[-1,2],[0,4]])
+print(M.dtype)
+M2 = M.astype(float)
+print(M2)
+print(M2.dtype)
+
+x = np.arange(0,10,2)
+print(x)
+
+x = np.arange(-1,1,0.5)
+print(x)
+
+x = np.linspace(-10,10,100)
+y = np.sin(x)
+plt.plot(x, y, label = '$y = \sin(x)$')
+plt.legend(loc = 'upper right')
+plt.show()
+
+
+from numpy import random
+
+a = random.standard_normal(10000)
+
+C = random.standard_normal((32,32))
+print(C.shape)
+
+plt.imshow(C, interpolation = 'nearest')
+plt.colorbar()
+plt.show()
+
+A = np.zeros((2,3))
+print(A)
+
+M = random.standard_normal((3, 3))
+print(M)
+
+np.savetxt("random-data.csv", M, fmt=' %2.3f', delimiter = ',')
+
+
+np.save("random-matrix.npy", M)
+
+a = np.arange(20)
+a = a.reshape(4, 5)
+
+x1 = np.linspace(-1,1,100)
+y1 = np.abs(x1-1)+np.abs(x1+1)
+plt.plot(x1, y1)
+plt.show()
